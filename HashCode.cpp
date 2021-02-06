@@ -20,8 +20,10 @@ int main()
 			arr[i].push_back(s);
 		}
 	}
-	
-	
+	for(int i=0;i<m;i++)
+	{
+		sort(arr.begin(),arr.end());
+	}
 	
 	
 	return 0;
