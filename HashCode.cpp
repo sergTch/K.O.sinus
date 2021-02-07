@@ -1,4 +1,8 @@
-#include<bits/stdc++.h>
+#include<vector>
+#include<iostream>
+#include<fstream>
+#include<algorithm>
+
 using namespace std;
 int compare2(vector<string>& sortedpizza1,vector<string>& sortedpizza2)
 {
