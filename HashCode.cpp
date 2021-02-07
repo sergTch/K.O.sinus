@@ -20,16 +20,19 @@ int main(int argc, char** argv)
 
 	for(int i = 0; i < m; i++)
 	{
-		arr.push_back(pizza());
+		arr[i] = pizza(i);
 		arr[i].read(infile, ingSet);	
 	}
-	
-	// for(int i = 0; i < m; i++)
-	// 	arr[i].show(cout);
+
+	sort(arr.begin(), arr.end());
+	for (int i = 0; i < m; i++)
+		arr[i].show(cout);
 
 	for (auto it = ingSet.begin(); it != ingSet.end(); it++)
 		cout << *it << " ";
+	
 	cout << endl;
 	cout << arr[0].compare(arr[2]);
+
 	return 666;
 }
