@@ -12,40 +12,40 @@ void pizza::read(istream& infile){
     for (int i = 0; i < c; i++)
     {
         infile>>s;
-        ing.push_back(s);
+        ing.insert(s);
     }
-    sort(ing.begin(),ing.end());
 }
 
-void pizza::read(istream& infile, set<string>& ingSet){
+void pizza::read(istream& infile, map<string, int>& ingSet){
     infile >> c;
     string s;
     for (int i = 0; i < c; i++)
     {
         infile>>s;
-        ing.push_back(s);
-        ingSet.insert(s);
+        ing.insert(s);
+        ingSet[s]++;
     }
-    sort(ing.begin(),ing.end());
 }
 
 void pizza::show(ostream& out){
     out << id << " " << c;
-    for (int i = 0; i < c; i++)
-        out << " " << ing[i];
+    for (auto it = ing.begin(); it != ing.end(); it++)
+        out << " " << *it;
     out << endl;
 }
 
 int pizza::compare(pizza& pizza2){
-    int s1=c, s2=pizza2.c, i=0, j=0;
+    int s1 = c, s2 = pizza2.c;
+    auto i = ing.begin();
+    auto j = pizza2.ing.begin();
     int counter=0;
-    while(i<s1 && j<s2)
+    while(i != ing.end() && j != pizza2.ing.end())
     {
-        if (ing[i]>pizza2.ing[j])
+        if (*i > *j)
         {
             j++;
         }
-        else if (ing[i]<pizza2.ing[j])
+        else if (*i < *j)
         {
             i++;
         }
