@@ -13,6 +13,18 @@ void pizza::read(istream& infile){
     sort(ing.begin(),ing.end());
 }
 
+void pizza::read(istream& infile, set<string>& ingSet){
+    infile >> c;
+    string s;
+    for (int i = 0; i < c; i++)
+    {
+        infile>>s;
+        ing.push_back(s);
+        ingSet.insert(s);
+    }
+    sort(ing.begin(),ing.end());
+}
+
 void pizza::show(ostream& out){
     out << c;
     for (int i = 0; i < c; i++)
