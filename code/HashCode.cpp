@@ -13,8 +13,11 @@ int main(int argc, char** argv)
 {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL);
-	ifstream infile("a_example");
-	int m,t2,t3,t4;
+	string path = "./data/a_example";
+	if (argc > 1)
+		path = "./data/" + string(argv[1]);
+	ifstream infile(path);
+	int m, t2, t3, t4;
 	infile >> m >> t2 >> t3 >> t4;
 	vector<pizza> arr(m);
 	map<string, int> ingSet;

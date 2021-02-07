@@ -21,6 +21,7 @@ public:
 	void read(istream& infile, map<string, int>& ingSet);
 	void show(ostream& out);
 	int compare(pizza& pizza2);
+	void add(pizza& pizza2);
 
     bool operator<(pizza& pizza2);
 };
