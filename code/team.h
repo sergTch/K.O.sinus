@@ -12,6 +12,7 @@ public:
     Team();
     Team(Pizza& p);
 
+    void show(ostream& out);
     void add(Pizza& p);
 };
 

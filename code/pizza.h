@@ -11,14 +11,13 @@ using namespace std;
 
 class Pizza{
 public:
-	set<string> ing;
+	set<int> ing;
 	int c;
     int id;
 
 	Pizza();
 	Pizza(int t);
-	void read(istream& infile);
-	void read(istream& infile, map<string, int>& ingSet);
+	void read(istream& infile, map<string, int>& ingMap, int& ingId);
 	void show(ostream& out);
 	int compare(Pizza& pizza2);
 	void add(Pizza& pizza2);

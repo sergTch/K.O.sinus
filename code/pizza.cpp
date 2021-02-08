@@ -6,24 +6,18 @@ Pizza::Pizza(int t){
     id = t;
 }
 
-void Pizza::read(istream& infile){
+void Pizza::read(istream& infile, map<string, int>& ingMap, int& ingId){
     infile >> c;
     string s;
+    int t;
     for (int i = 0; i < c; i++)
     {
         infile>>s;
-        ing.insert(s);
-    }
-}
-
-void Pizza::read(istream& infile, map<string, int>& ingSet){
-    infile >> c;
-    string s;
-    for (int i = 0; i < c; i++)
-    {
-        infile>>s;
-        ing.insert(s);
-        ingSet[s]++;
+        t = ingMap[s];
+        if (t == 0){
+            ing.insert(ingId);
+            ingMap[s] = (ingId++);
+        } else ing.insert(t);
     }
 }
 
@@ -50,6 +44,11 @@ int Pizza::compare(Pizza& pizza2){
             j++;
         }
     }
+    while (i != ing.end()){
+        i++;
+        counter++;
+    }
+    
     return counter;
 }
 
