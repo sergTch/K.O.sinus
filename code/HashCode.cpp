@@ -29,7 +29,7 @@ void readInput(int& m, vector<int>& t, list<Pizza>& pizzas,
 int solve(int& m, vector<int>& t, list<Pizza>& pizzas, 
 			map<string, int>& ingSet, ostream& out){
 	int score = 0;
-	vector<vector<int>> teams;
+	vector<Team> teams;
 
 	while ((t[0] > 0 || t[1] > 0 || t[2] > 0) && pizzas.end() != pizzas.begin()){
 		Team team = Team(pizzas.front());
@@ -63,15 +63,12 @@ int solve(int& m, vector<int>& t, list<Pizza>& pizzas,
 				team.size = i;
 		t[team.size - 2]--;
 		//team.show(out);
-		teams.push_back(team.ids);
+		teams.push_back(team);
 		score += team.pizza.c * team.pizza.c;
 	}
 	out << teams.size() << endl;
 	for (int i = 0; i < teams.size(); i++) {
-		out << teams[i].size();
-		for (int j = 0; j < teams[i].size(); j++)
-			out << " " << teams[i][j];
-		out << endl;
+		teams[i].show(out);
 	}
 	return score;
 }
@@ -80,9 +77,9 @@ int main(int argc, char** argv)
 {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL);
-	//string path = "./K.O.sinus/data/a_example";
+	string path = "./K.O.sinus/data/a_example";
 	//string path = "./K.O.sinus/data/b_little_bit_of_everything.in";
-	string path = "./K.O.sinus/data/c_many_ingredients.in";
+	//string path = "./K.O.sinus/data/c_many_ingredients.in";
 	//string path = "./K.O.sinus/data/d_many_pizzas.in";
 	//string path = "./K.O.sinus/data/e_many_teams.in";
 	if (argc > 1)
