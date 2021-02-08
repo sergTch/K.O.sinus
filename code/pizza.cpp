@@ -1,12 +1,12 @@
 #include "pizza.h"
 
-pizza::pizza(){}
+Pizza::Pizza(){}
 
-pizza::pizza(int t){
+Pizza::Pizza(int t){
     id = t;
 }
 
-void pizza::read(istream& infile){
+void Pizza::read(istream& infile){
     infile >> c;
     string s;
     for (int i = 0; i < c; i++)
@@ -16,7 +16,7 @@ void pizza::read(istream& infile){
     }
 }
 
-void pizza::read(istream& infile, map<string, int>& ingSet){
+void Pizza::read(istream& infile, map<string, int>& ingSet){
     infile >> c;
     string s;
     for (int i = 0; i < c; i++)
@@ -27,14 +27,14 @@ void pizza::read(istream& infile, map<string, int>& ingSet){
     }
 }
 
-void pizza::show(ostream& out){
+void Pizza::show(ostream& out){
     out << id << " " << c;
     for (auto it = ing.begin(); it != ing.end(); it++)
         out << " " << *it;
     out << endl;
 }
 
-int pizza::compare(pizza& pizza2){
+int Pizza::compare(Pizza& pizza2){
     auto i = ing.begin();
     auto j = pizza2.ing.begin();
     int counter=0;
@@ -53,12 +53,12 @@ int pizza::compare(pizza& pizza2){
     return counter;
 }
 
-void pizza::add(pizza& pizza2){
+void Pizza::add(Pizza& pizza2){
     for (auto i = pizza2.ing.begin(); i != pizza2.ing.end();i++)
         ing.insert(*i);
     c = ing.size();
 }
 
-bool pizza::operator<(pizza& pizza2){
+bool Pizza::operator<(Pizza& pizza2){
     return c > pizza2.c;
 }

@@ -3,13 +3,16 @@
 
 #include "pizza.h"
 
-class team{
+class Team{
 public:
-    pizza piz;
+    Pizza pizza;
     vector<int> ids;
-    
-    team();
-    team(pizza& p);
+    int size;
+
+    Team();
+    Team(Pizza& p);
+
+    void add(Pizza& p);
 };
 
 #endif

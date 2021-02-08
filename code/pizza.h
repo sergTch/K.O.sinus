@@ -9,21 +9,21 @@
 
 using namespace std;
 
-class pizza{
+class Pizza{
 public:
 	set<string> ing;
 	int c;
     int id;
 
-	pizza();
-	pizza(int t);
+	Pizza();
+	Pizza(int t);
 	void read(istream& infile);
 	void read(istream& infile, map<string, int>& ingSet);
 	void show(ostream& out);
-	int compare(pizza& pizza2);
-	void add(pizza& pizza2);
+	int compare(Pizza& pizza2);
+	void add(Pizza& pizza2);
 
-    bool operator<(pizza& pizza2);
+    bool operator<(Pizza& pizza2);
 };
 
 #endif

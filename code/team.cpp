@@ -1,7 +1,13 @@
 #include "team.h"
 
-team::team(){}
+Team::Team(){}
 
-team::team(pizza& p){
-    piz = p;
+Team::Team(Pizza& p){
+    pizza = p;
+    ids.push_back(p.id);
+}
+
+void Team::add(Pizza& p){
+    pizza.add(p);
+    ids.push_back(p.id);
 }
